@@ -33,6 +33,7 @@ class TTT1 extends JFrame implements ItemListener, ActionListener{
 
     reset = new JButton("RESET");
     reset.setBounds(110, 350, 100, 50);
+    reset.setBackground(Color.WHITE);
     add(reset);
     reset.addActionListener(this);
   }//eof showButton
@@ -129,6 +130,8 @@ class TTT1 extends JFrame implements ItemListener, ActionListener{
       l1.setBounds(100, 10, 100, 30);
       l2.setBounds(150, 10, 100, 30);
       l3.setBounds(165, 10, 100, 30);
+      l1.setForeground(Color.RED);
+      l3.setForeground(Color.GREEN);
       add(l1);
       add(l2);
       add(l3);
@@ -136,12 +139,14 @@ class TTT1 extends JFrame implements ItemListener, ActionListener{
       updateScore(); // Tambahkan pemanggilan updateScore() di sini
     } else if(c2.getState()){ 
       type=true;
-      l1 = new JLabel("Player 0");
+      l1 = new JLabel("Player(1) 0");
       l2 = new JLabel("  - ");
-      l3 = new JLabel("0 Friend");
+      l3 = new JLabel("0 Player(2)");
       l1.setBounds(100, 10, 100, 30);
-      l2.setBounds(150, 10, 100, 30);
-      l3.setBounds(165, 10, 100, 30);
+      l2.setBounds(160, 10, 100, 30);
+      l3.setBounds(175, 10, 100, 30);
+      l1.setForeground(Color.RED);
+      l3.setForeground(Color.GREEN);
       add(l1);
       add(l2);
       add(l3);
@@ -216,7 +221,7 @@ class TTT1 extends JFrame implements ItemListener, ActionListener{
             b[(a[i][3]-1)].setIcon(ic11);
             playerScore++; // Tambahkan skor untuk pemain
             updateScore();
-            JOptionPane.showMessageDialog(TTT1.this,"!!!YOU Won!!! Click Reset");			 
+            JOptionPane.showMessageDialog(TTT1.this,"!!!PLAYER Won!!! Click Reset");			 
             break;
           } else if(icon1==ic2){ 
             b[(a[i][1]-1)].setIcon(ic22);
@@ -224,7 +229,7 @@ class TTT1 extends JFrame implements ItemListener, ActionListener{
             b[(a[i][3]-1)].setIcon(ic22); 
             computerScore++; // Tambahkan skor untuk komputer
             updateScore();
-            JOptionPane.showMessageDialog(TTT1.this,"!!!HAHAHA (COMPUTER) Won!!! Click Reset");
+            JOptionPane.showMessageDialog(TTT1.this,"!!!COMPUTER Won!!! Click Reset");
             break;			 
           }
         } else if(c2.getState()){
@@ -234,7 +239,7 @@ class TTT1 extends JFrame implements ItemListener, ActionListener{
             b[(a[i][3]-1)].setIcon(ic11);
             playerScore++; // Tambahkan skor untuk pemain
             updateScore();
-            JOptionPane.showMessageDialog(TTT1.this,"!!!YOU Won!!! Click Reset");			 
+            JOptionPane.showMessageDialog(TTT1.this,"!!!PLAYER(1) Won!!! Click Reset");			 
             break;
           } else if(icon1==ic2){ 
             b[(a[i][1]-1)].setIcon(ic22);
@@ -242,7 +247,7 @@ class TTT1 extends JFrame implements ItemListener, ActionListener{
             b[(a[i][3]-1)].setIcon(ic22); 
             computerScore++; // Tambahkan skor untuk komputer
             updateScore();
-            JOptionPane.showMessageDialog(TTT1.this,"!!!HAHAHA (FRIEND) Won!!! Click Reset");
+            JOptionPane.showMessageDialog(TTT1.this,"!!!PLAYER(2) Won!!! Click Reset");
             break;			 
           }
         }
@@ -257,9 +262,9 @@ class TTT1 extends JFrame implements ItemListener, ActionListener{
       l2.setText("  - ");
       l3.setText(computerScore + " Computer ");
     } else if(c2.getState()){
-      l1.setText("Player " + playerScore);
+      l1.setText("Player(1) " + playerScore);
       l2.setText("  - ");
-      l3.setText(computerScore + " Friend ");
+      l3.setText(computerScore + " Player(2) ");
     }
   }
 
